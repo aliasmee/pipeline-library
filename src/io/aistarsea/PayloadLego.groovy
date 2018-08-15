@@ -5,7 +5,7 @@ import groovy.json.JsonOutput
 // payload covert to json
 def payloadToJson(channel, text, color) {
     JsonOutput.toJson([
-        text: text
+        text: text,
         channel: channel,
         user: 'aliasmee',
         attachments: [[
