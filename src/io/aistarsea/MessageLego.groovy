@@ -107,7 +107,7 @@ def commitMsg() {
 @NonCPS
 def testMsg(branch, testResults, lastCommit, coverage='', color=colorLegible(), failedTest='') {
     def msg = ''
-	  msg += """{"title":"Status:","text":">*${currentBuild.result}*", "color":"${color}"},
+	  msg += """{"title":"Status:","text":">*${currentBuild.currentResult}*", "color":"${color}"},
 	            {"title":"Branch:","text":">*${branch}*", "color":"${color}"},
               {"title":"Test Results:", "text":">*${testResults}*", "color":"${color}"},
               {"title":"Last Commit:", "text":">*${lastCommit}*", "color":"${color}"}"""
@@ -126,7 +126,7 @@ def testMsg(branch, testResults, lastCommit, coverage='', color=colorLegible(), 
 @NonCPS
 def coverageResults() {
   def msg = ''
-  def color = colorByResult(currentBuild.result)
+  def color = colorByResult(currentBuild.currentResult)
   def coverageResults = currentBuild.rawBuild.getAction(hudson.plugins.jacoco.JacocoBuildAction.class)
 
   if (coverageResults != null) {
@@ -142,8 +142,8 @@ def coverageResults() {
 @NonCPS
 def deployMsg(branch, environment, address, commits=null, coverage=null) {
     def msg = ''
-    def color = colorByResult(currentBuild.result)
-    msg = """{"title":"Status:","text":">*${currentBuild.result}*", "color":"${color}"},
+    def color = colorByResult(currentBuild.currentResult)
+    msg = """{"title":"Status:","text":">*${currentBuild.currentResult}*", "color":"${color}"},
 	            {"title":"Branch:","text":">*${branch}*", "color":"${color}"},
               {"title":"Deployed to:", "text":">*${environment}*", "color":"${color}"}"""
     if (commits) {
@@ -161,8 +161,8 @@ def deployMsg(branch, environment, address, commits=null, coverage=null) {
 @NonCPS
 def errorMsg(message) {
     def msg = ''
-    def color = colorByResult(currentBuild.result)
-    msg = """{"title":"Status:","text":">*${currentBuild.result}*", "color":"${color}"},
+    def color = colorByResult(currentBuild.currentResult)
+    msg = """{"title":"Status:","text":">*${currentBuild.currentResult}*", "color":"${color}"},
              {"title":"Stage Name:","text":">*${STAGE_NAME}*", "color":"${color}"},
              {"title":"Error Detail:","text":">*${env.BUILD_URL}*", "color":"${color}"}"""
 
@@ -176,8 +176,8 @@ def errorMsg(message) {
 @NonCPS
 def buildMsg(message) {
     def msg = ''
-    def color = colorByResult(currentBuild.result)
-    msg = """{"title":"Status:","text":">*${currentBuild.result}*", "color":"${color}"},
+    def color = colorByResult(currentBuild.currentResult)
+    msg = """{"title":"Status:","text":">*${currentBuild.currentResult}*", "color":"${color}"},
              {"title":"Stage Name:","text":">*${STAGE_NAME}*", "color":"${color}"},
              {"title":"Build Detail:","text":">*${env.BUILD_URL}*", "color":"${color}"}"""
 
