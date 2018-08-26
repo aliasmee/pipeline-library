@@ -88,12 +88,6 @@ def getFailedTests = { ->
 
 
 @NonCPS
-def getLastCommitMessage = {
-    message = sh(returnStdout: true, script: 'git log -1 --pretty=%B').trim()
-}
-
-
-@NonCPS
 def commitMsg = { ->
     def changeLogSets = currentBuild.changeSets
     def c = 0
