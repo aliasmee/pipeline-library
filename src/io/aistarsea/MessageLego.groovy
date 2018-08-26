@@ -214,6 +214,8 @@ def migrationMsg() {
 
 }
 
+return this
+
 /*
 
 {"text":"**[optimus-project, build #2](https://www.bing.com)**","channel":"devops","user":"aliasmee",
