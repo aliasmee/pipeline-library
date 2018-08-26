@@ -88,7 +88,7 @@ def getFailedTests = { ->
 
 
 @NonCPS
-def commitMsg = { ->
+def commitMsg() {
     def changeLogSets = currentBuild.changeSets
     def c = 0
     def msg = ""
