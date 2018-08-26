@@ -96,9 +96,9 @@ def commitMsg() {
         def entries = changeLogSets[i].items
         for (int j = 0; j < entries.length; j++) {
             def entry = entries[j]
-            msg += "${entry.msg} - ${entry.author}\n"
+            msg += "${entry.msg} - ${entry.author}"
             c+=1
-            if (c > 4) return msg += ' ...\n'
+            if (c > 4) return msg += '\n ...\n'
         }
     }
     return msg
