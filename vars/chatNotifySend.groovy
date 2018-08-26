@@ -12,9 +12,9 @@ def call(Map config = [:]) {
         echo 'text is required!'
         return
     }
-    color = config.color?: '#00BFFF'
+//    color = config.color?: '#00BFFF'
     def mmUtils = new PayloadLego()
-    def payload = mmUtils.payloadToJson(config.channel, config.text, color, config.attachments)
+    def payload = mmUtils.payloadToJson(config.channel, config.text, config.attachments)
 
     sh "curl -X POST -d \'payload=${payload}\' ${config.endpoint}"
 }

@@ -3,7 +3,7 @@ package io.aistarsea
 import groovy.json.JsonOutput
 
 // payload covert to json
-def payloadToJson(channel, text, color, attachments) {
+def payloadToJson(channel, text, attachments) {
     JsonOutput.toJson([
         text: "**${text}**",
         channel: channel,
