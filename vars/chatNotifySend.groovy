@@ -14,7 +14,7 @@ def call(Map config = [:]) {
     }
     color = config.color?: '#00BFFF'
     def mmUtils = new PayloadLego()
-    def payload = mmUtils.payloadToJson(config.channel, config.text, color)
+    def payload = mmUtils.payloadToJson(config.channel, config.text, color, config.attachments)
 
     sh "curl -X POST -d \'payload=${payload}\' ${config.endpoint}"
 }
