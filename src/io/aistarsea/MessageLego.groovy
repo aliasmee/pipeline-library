@@ -48,7 +48,7 @@ def colorByResult(buildResult) {
 
 
 @NonCPS
-def getTestSummary = { ->
+def getTestSummary() {
     def testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
     def summary = ""
 
@@ -67,7 +67,7 @@ def getTestSummary = { ->
 }
 
 @NonCPS
-def getFailedTests = { ->
+def getFailedTests() {
     def testResultAction = currentBuild.rawBuild.getAction(AbstractTestResultAction.class)
     def failedTestsString = "```"
 

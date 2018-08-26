@@ -8,7 +8,7 @@ def payloadToJson(channel, text, attachments) {
         text: "**${text}**",
         channel: channel,
         user: 'aliasmee',
-        attachments: attachments
+        attachments: ["${attachments}"]
     ])
 }
 
