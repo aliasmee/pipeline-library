@@ -8,10 +8,10 @@ def call(Map config = [:]) {
         return
     }
 
-    if (!config.text) {
-        echo 'text is required!'
-        return
-    }
+    // if (!config.text) {
+    //     echo 'text is required!'
+    //     return
+    // }
 //    color = config.color?: '#00BFFF'
     def mmUtils = new PayloadLego()
     def payload = mmUtils.payloadToJson(config.channel, config.attachments, config.text)
