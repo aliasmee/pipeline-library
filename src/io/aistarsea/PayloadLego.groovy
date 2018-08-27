@@ -8,11 +8,11 @@ def payloadToJson(channel, attachments, text) {
         text: "**${text}**",
         channel: channel,
         user: 'aliasmee',
-        attachments: 'trap'
+        attachments: 'trap20180828'
 
     ])
 
-    custom.replaceAll(/"trap"/, "[${attachments}]")
+    custom.replaceAll(/"trap20180828"/, "[${attachments}]")
 
 }
 
