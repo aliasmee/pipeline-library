@@ -153,7 +153,7 @@ def deployMsg(branch, environment, address, commits=null, coverage=null) {
         msg += """,{"title":"Service URL:", "text":">*${address})*", "color":"${color}"}"""
 
     }
-    msg += """,{"title":"Deploy Detail:", "text":">*${env.BUILD_URL}/console)*", "color":"${color}"}"""
+    msg += """,{"title":"Deploy Detail:", "text":">*${env.BUILD_URL}/console*", "color":"${color}"}"""
     return msg
 }
 
