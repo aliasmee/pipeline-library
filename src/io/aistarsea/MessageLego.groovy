@@ -153,7 +153,7 @@ def deployMsg(branch, environment, address, commits=null, coverage=null) {
         msg += """,{"title":"Service URL:", "text":">*${address})*", "color":"${color}"}"""
 
     }
-    msg += """,{"title":"Deploy Detail:", "text":">*${env.BUILD_URL})*", "color":"${color}"}"""
+    msg += """,{"title":"Deploy Detail:", "text":">*${env.BUILD_URL}/console)*", "color":"${color}"}"""
     return msg
 }
 
@@ -164,7 +164,7 @@ def errorMsg(message) {
     def color = colorByResult(currentBuild.currentResult)
     msg = """{"title":"Status:","text":">*${currentBuild.currentResult}*", "color":"${color}"},
              {"title":"Stage Name:","text":">*${STAGE_NAME}*", "color":"${color}"},
-             {"title":"Error Detail:","text":">*${env.BUILD_URL}*", "color":"${color}"}"""
+             {"title":"Error Detail:","text":">*${env.BUILD_URL}/console*", "color":"${color}"}"""
 
     if (message) {
       msg += """,{"title":"Error Message:","text":">*```${message}```*", "color":"${color}"}"""
@@ -179,7 +179,7 @@ def buildMsg(message) {
     def color = colorByResult(currentBuild.currentResult)
     msg = """{"title":"Status:","text":">*${currentBuild.currentResult}*", "color":"${color}"},
              {"title":"Stage Name:","text":">*${STAGE_NAME}*", "color":"${color}"},
-             {"title":"Build Detail:","text":">*${env.BUILD_URL}*", "color":"${color}"}"""
+             {"title":"Build Detail:","text":">*${env.BUILD_URL}/console*", "color":"${color}"}"""
 
     if (message) {
         msg += """,{"title":"Message:","text":">*```${message}```*", "color":"${color}"}"""
@@ -193,7 +193,7 @@ def taskStart(message='Build Started...') {
     def msg = ''
     def color = colorLegible('good')
     msg = """{"title":"Messages:","text":">*${message}*", "color":"${color}"},
-             {"title":"Build Detail:","text":">*${env.BUILD_URL}*", "color":"${color}"}"""
+             {"title":"Build Detail:","text":">*${env.BUILD_URL}/console*", "color":"${color}"}"""
 
     return msg
 }
