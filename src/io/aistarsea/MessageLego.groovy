@@ -150,7 +150,7 @@ def deployMsg(branch, environment, address, commits=null, coverage=null) {
         msg += """,{"title":"Commits:", "text":">*${commits}*", "color":"${color}"}"""
     }
     if (address) {
-        msg += """,{"title":"Service URL:", "text":">*${address})*", "color":"${color}"}"""
+        msg += """,{"title":"Service URL:", "text":">*${address}*", "color":"${color}"}"""
 
     }
     msg += """,{"title":"Deploy Detail:", "text":">*${env.BUILD_URL}/console*", "color":"${color}"}"""
@@ -174,7 +174,7 @@ def errorMsg(message) {
 }
 
 @NonCPS
-def buildMsg(message) {
+def buildMsg(message='') {
     def msg = ''
     def color = colorByResult(currentBuild.currentResult)
     msg = """{"title":"Status:","text":">*${currentBuild.currentResult}*", "color":"${color}"},
