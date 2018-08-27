@@ -159,7 +159,7 @@ def deployMsg(branch, environment, address, commits=null, coverage=null) {
 
 
 @NonCPS
-def errorMsg(message) {
+def errorMsg(message='') {
     def msg = ''
     def color = colorByResult(currentBuild.currentResult)
     msg = """{"title":"Status:","text":">*${currentBuild.currentResult}*", "color":"${color}"},
