@@ -11,7 +11,8 @@ def call(Map config = [:]) {
     if (!config.text) {
 //        echo 'text is required!'
 //        return
-        return config.text = "${JOB_NAME} [${BUILD_DISPLAY_NAME}](${BUILD_URL})"
+        config.text = "${JOB_NAME} [${BUILD_DISPLAY_NAME}](${BUILD_URL})"
+        return config.text
     }
 //    color = config.color?: '#00BFFF'
     def mmUtils = new PayloadLego()
