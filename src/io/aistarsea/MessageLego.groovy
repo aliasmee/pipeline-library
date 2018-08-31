@@ -53,13 +53,21 @@ def getTestSummary() {
     def summary = ""
 
     if (testResultAction != null) {
+        diff = testResultAction.getFailureDiffString()
+        diff = diff.split( )
+        if(diff.size() <= 1) {
+            diff = ':robot_face:'
+        } else {
+            diff = diff[1]
+        }
         total = testResultAction.getTotalCount()
         failed = testResultAction.getFailCount()
         skipped = testResultAction.getSkipCount()
 
         summary = "Passed: " + (total - failed - skipped)
-        summary = summary + (", Failed: " + failed + ' / ' + ${testResultAction.failureDiffString})
+        summary = summary + (", Failed: " + failed)
         summary = summary + (", Skipped: " + skipped)
+        summary = summary + (", Diff: " + diff)
     } else {
         summary = "No tests found"
     }
