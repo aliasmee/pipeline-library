@@ -120,7 +120,10 @@ def testMsg(branch, testResults, lastCommit, coverage='', color=colorLegible(), 
               {"title":"Test Results:", "text":">*${testResults}*", "color":"${color}"},
               {"title":"Last Commit:", "text":">*${lastCommit}*", "color":"${color}"}"""
     if (coverage) {
+      /* Temporarily remove this feature
         msg += coverageResults()
+      */
+        msg += """,{"title":"Coverage Results:", "text":">[*${coverage}*%25](${BUILD_URL}/Coverage_20Report)", "color":"${color}"}"""
     }
 
     if (failedTest?.trim()) {
